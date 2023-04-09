@@ -8,6 +8,23 @@
 >
 ## Bash features
 Shell scripting features used:
+### Variables
+#### To create a variable: assign a value. Don't use whitespace around =
+```
+directory=reports
+```
+#### Values containing spaces: use quotes.
+```
+filenames="notes.txt picture.jpg movie.mov"
+```
+#### To retrieve the value, prefix with $
+```
+echo $directory
+```
+> **Note**
+> Shell variables have no data type. They simply store strings.
+> Naming: use letters, numbers, underscore. First letter: a letter or underscore. Case-sensitive.
+> Predefined variables are uppercase. PATH, HOME, SECONDS, IFS, etc.
 
 ## Getting Started
 
