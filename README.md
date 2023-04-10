@@ -39,8 +39,8 @@ create_report.sh A5 myfolder
 grep -- "user_input"
 ```
 > **Note**
-> Some commands don't support thid
-> Use printf instead of echo 
+> Some commands don't support this -
+> use printf instead of echo 
 ```
 printf "I will delete this file: %s\n" "$file_to_delete"
 ```
