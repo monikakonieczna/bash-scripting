@@ -13,7 +13,7 @@ Shell scripting features used:
 ```
 directory=reports
 ```
-#### Values containing spaces: use quotes.
+#### Values containing spaces: use quotes. Use double quotes - keep meaning of dollar sign intact.
 ```
 filenames="notes.txt picture.jpg movie.mov"
 ```
@@ -21,15 +21,34 @@ filenames="notes.txt picture.jpg movie.mov"
 ```
 echo $directory
 ```
+### You can use braces to tell where your variable ends.
+```
+${variable}_report
+```
 > **Note**
 > Shell variables have no data type. They simply store strings.
 > Naming: use letters, numbers, underscore. First letter: a letter or underscore. Case-sensitive.
 > Predefined variables are uppercase. PATH, HOME, SECONDS, IFS, etc.
-
-## Getting Started
-
-### Prerequisites
-
+## Taking arguments
+### Your script can accept input from arguments
+```
+create_report.sh A5 myfolder
+```
+### Use -- (end of options) - If your input is unpredictable you can run into problems when your variable contains a string which is starting with a -
+```
+grep -- "user_input"
+```
+> **Note**
+> Some commands don't support thid
+> Use printf instead of echo 
+```
+printf "I will delete this file: %s\n" "$file_to_delete"
+```
+## Debugging
+### Use -x to show each line with variable values as the script runs
+```
+#!/bin/bash -x
+```
 ## Calling your script
 
 ### If the script is not on your PATH: include the directory

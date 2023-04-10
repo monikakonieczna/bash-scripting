@@ -1,14 +1,17 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # Create a report file for a single shipping container
 # Author: Monika
 
-# Exercise: Create a variable called 'directory'
+# Exercise 1: Create a variable called 'directory'
 # that determines where we save our output file
 
-directory=reports
-mkdir -p $directory
-grep  $1 shipments.csv > $directory/$1.csv
+# Exercise 2: Read the output directory from a command-line argument 
 
-echo Wrote report $directory/$1.csv
+container="$1"
+directory="$2"
 
+mkdir -p -- "$directory"
+grep -- "$container" shipments.csv > "$directory/${container}_report.csv"
+
+echo "Wrote report $directory/${container}_report.csv"
