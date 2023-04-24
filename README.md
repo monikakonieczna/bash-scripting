@@ -43,6 +43,63 @@ grep -- "user_input"
 ```
 printf "I will delete this file: %s\n" "$file_to_delete"
 ```
+### Return Values
+#### Returned by program upon exit 
+> **Note**
+> 0-255, 0 means success
+> Other values are error codes
+#### Returned value from script - exit 0
+> **Good habit**
+> Exit scripts with a correct value
+> Always call exit with a value
+### Conditional Expressions
+#### Test for return value of command
+```
+if touch /tmp/x; then ...
+```
+#### Perform test on strings, files, numbers
+```
+if [[ $str ]]; then
+    ...
+fi
+```
+#### Examples
+##### Argument empty - user didn't pass first argument to the script
+```
+[[ ! $1 ]]
+```
+##### String not empty
+```
+[[ $str ]]
+```
+##### String equals "something"
+```
+[[ $str = "something" ]]
+```
+##### File exists
+```
+[[ -e $filename ]] 
+```
+##### File does NOT exist
+```
+[[ ! -e $file ]]
+```
+##### Directory exists
+```
+[[ -d $dirname ]]
+```
+##### AND operator
+```
+[[ -d $dir && $1 = "foo" ]]
+```
+##### OR operator
+```
+[[ $a || $b ]]
+```
+##### More info about possible comparisons
+```
+man test
+```
 ### Debugging
 #### Use -x to show each line with variable values as the script runs
 ```
